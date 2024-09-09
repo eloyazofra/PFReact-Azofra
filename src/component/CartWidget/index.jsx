@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
-import Pill from '../pill';
+import Pill from '../Pill';
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
     return (

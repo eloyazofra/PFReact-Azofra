@@ -1,28 +1,19 @@
 import logo from '../../assets/photo-navbar.png'
 import CartWidget from '../CartWidget'
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
-
-const Navbar = () => {
+const CustomNavbar = () => {
     return (
         <header className="header">
-            <nav className="navbar container">
+            <Navbar>
                 <menu className="navbar__menu">
-                    <li className="navbar__item">
-                        <a href="" className="navbar__link">Inicio</a>
-                    </li>
-                    <li className="navbar__item">
-                        <a href="" className="navbar__link">Productos</a>
-                    </li>
-                    <li className="navbar__item">
-                        <a href="" className="navbar__link">Muebles</a>
-                    </li>
-                    <li className="navbar__item">
-                        <a href="" className="navbar__link">Contacto</a>
-                    </li>
+                <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+                <Nav.Link as={Link} to="/Contact">Contacto</Nav.Link>
                 </menu>
-                <figure className="navbar__logo">
-                    <img src={logo} alt="Floki diseño en madera logo" width="80" height="40" />
-                </figure>
+
+                <Navbar.Brand as={Link} to=""><img src={logo} alt="Floki"  width="100" height="50" /></Navbar.Brand>
+
                 <div className="navbar__right">
                     <form className="navbar__search">
                         <input 
@@ -34,12 +25,12 @@ const Navbar = () => {
                     </form>
                         <a href="" className="navbar__cart"><CartWidget/></a>
                 </div>
-            </nav>
+            </Navbar>
         </header>
     );
 }
 
-export default Navbar;
+export default CustomNavbar;
 
 
  

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Velador",
+        "category": "Madera",
+        "price": 300,
+        "image": "velador",
+        "description":  "✨ Pintado con barniz poliuretánico.\n💡 Lámpara de 25w (Filamento de Carbono)\n 📏 Diámetro de la lámpara: 12cm\n♻ Realizado en madera recuperada.\n🔌 Cable textil a elección (consultar colores disponibles)."
+    },
+    {
+        "id": 2,
+        "name": "Base Para Latas",
+        "category": "Madera",
+        "price": 400,
+        "image": "baseLatas",
+        "description": "✨ Pintado con Cetol (apto exteriores)\n♻ Realizado en madera recuperada.\n 🌱 Podes decorar cualquier\n ambiente usando las latas que más \nte gusten como macetas\n🔢 Disponibles para 4, 5 y 6 latas.\n🔩 Incluye tornillos y tarugos."
+    },
+    {
+        "id": 3,
+        "name": "Velador Led",
+        "category": "Madera",
+        "price": 500,
+        "image": "veladorLed",
+        "description": "🌡Luz Neutra (no cansa la vista)\n♻ Maderas: Pino, Nogal, Ébano y Wengue\n 🔌 Consumo: 5w\n✨Terminación: Aceite de Tung\n📏 Altura (en posición vertical): 41cm"
+    },
+    {
+        "id": 4,
+        "name": "Destapador",
+        "category": "Grabados",
+        "price": 600,
+        "image": "destapador",
+        "description": "✨ Pintados con barniz poliuretánico.\n 🍺 Herraje de excelente calidad.\n ♻ Realizado en madera recuperada.\n 📏 28cm x 11cm.\n ♻Imán de neodimio, fuertísimo!\n 🔩 Incluye tarugo y tornillo."
+    },
+    {
+        "id": 5,
+        "name": "Grabado Laser",
+        "category": "Grabados",
+        "price": 700,
+        "image": "grabadoLaser",
+        "description": "✨ Pintados con barniz poliuretánico.\n 🍺 Herraje de excelente calidad.\n ♻ Realizado en madera recuperada.\n 📏 28cm x 11cm.\n ♻Imán de neodimio, fuertísimo!\n 🔩 Incluye tarugo y tornillo."
+    },
+    {
+        "id": 6,
+        "name": "Grabado Laser",
+        "category": "Grabados",
+        "price": 800,
+        "image": "grabadoLaser2",
+        "description": "✨ Pintados con barniz poliuretánico.\n 🍺 Herraje de excelente calidad.\n ♻ Realizado en madera recuperada.\n 📏 28cm x 11cm.\n ♻Imán de neodimio, fuertísimo!\n 🔩 Incluye tarugo y tornillo."
+    },
+    {
+        "id": 7,
+        "name": "Escritorio Rebatible",
+        "category": "Muebles",
+        "price": 900,
+        "image": "escritorioRebatible",
+        "description": "\n 📏 85cm x 40cm x 15cm (Cerrado)\n⤵️ Profundidad del escritorio abierto: 50cm \n ✨ Terminación en barniz poliuretanico\n  mate y brillante.\n ♻Imán de neodimio, fuertísimo!\n ♻ Realizado en madera recuperada."
+    },
+    {
+        "id": 8,
+        "name": "Mesa De Luz",
+        "category": "Muebles",
+        "price": 1000,
+        "image": "mesaDeLuz",
+        "description": "📏 35cm x 35cm x 50cm.\n📦 Cajon con corredera telescópica  \n 📦 Sale todo el cajón\n✨ Terminación en barniz MATE poliuretanico \n🛠️ Construida con madera de pallets \n desarmados, cepillados, y lijados. \n 🌳 Tapa de cajón en Eucalipto."
+    },
+    {
+        "id": 9,
+        "name": "Mesa Ratona",
+        "category": "Muebles",
+        "price": 1100,
+        "image": "mesaRatona",
+        "description": "📏 120cm x 48cm x 42cm \n👆 Altura con mesa elevada: 58cm \n📦 Cajón lateral extraíble. \n ✨ Terminación en barniz poliuretanico\n🛠️ Pallets desarmados, cepillados, y lijados. \n🌳 Tabla superior de Eucalipto."
+    }
+]
