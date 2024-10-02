@@ -3,7 +3,8 @@ import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
-const CustomNavbar = () => {
+
+const CustomNavbar = ({totalQuantity}) => {
     return (
         <header className="header">
             <Navbar>
@@ -23,7 +24,9 @@ const CustomNavbar = () => {
                         />
                         <button type="submit" className="navbar__search-button">Buscar</button>
                     </form>
-                        <a href="" className="navbar__cart"><CartWidget/></a>
+                    <Nav.Link as={Link} to="/cart">
+              <CartWidget quantity={totalQuantity} />
+            </Nav.Link>
                 </div>
             </Navbar>
         </header>

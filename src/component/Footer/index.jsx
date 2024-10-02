@@ -15,7 +15,7 @@ const Footer = () => {
             <ul className="list-group list-group-flush text-white">
               <li className="list-group-title">Categorias</li>
               <li className="list-group-item">
-                <a href="">Inicio</a>
+                <a href="">Madera</a>
               </li>
               <li className="list-group-item">
                 <a href="">Productos</a>

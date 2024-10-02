@@ -1,8 +1,16 @@
-.cart-widget{
+.cart-widget {
     position: relative;
+    display: flex; 
+    align-items: center; 
+    cursor: pointer; 
 }
 
-.cart-widget__cart{
+.cart-widget__cart {
     font-size: 35px;
     padding-left: 10px;
+    transition: color 0.3s; 
+}
+
+.cart-widget:hover .cart-widget__cart {
+    color: #075fbd; 
 }
