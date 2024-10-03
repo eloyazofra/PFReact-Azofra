@@ -1,19 +1,33 @@
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './index.css';
 import { image } from '../../assets/Products/image.js';
-import data from '../../assets/Products/data.json';
+import { db } from '../../config/firebase.config.js'; 
+import { collection, getDocs } from 'firebase/firestore';
 
 const Products = () => {
-  const [item, setItem] = useState([]);
+  const [items, setItems] = useState([]); 
+  const [loading, setLoading] = useState(true); 
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
-    setItem(data);
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'items')); 
+        const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); 
+        setItems(data); 
+      } catch (error) {
+        console.error('Error al obtener los datos de Firestore:', error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const groupedData = data.reduce((acc, item) => {
+  const groupedData = items.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
     }
@@ -25,15 +39,27 @@ const Products = () => {
     setSelectedCategory(category);
   };
 
-  const filteredItem = selectedCategory === 'All'
-    ? item
-    : item.filter(item => item.category === selectedCategory);
+  const filteredItems = selectedCategory === 'All'
+    ? items
+    : items.filter(item => item.category === selectedCategory);
 
   const categoriesToDisplay = selectedCategory === 'All'
     ? Object.keys(groupedData)
     : [selectedCategory];
 
+
+  if (loading) {
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
+
   return (
+    <main>
     <div className="container mt-4">
       <div className="item__category-button-container text-center">
         <button 
@@ -57,7 +83,7 @@ const Products = () => {
         <div key={category} className="item__category text-center">
           <h3 className="item__category-title">{category}</h3>
           <Row>
-            {filteredItem
+            {filteredItems
               .filter(item => item.category === category)
               .slice(0, 3)
               .map((item) => (
@@ -77,6 +103,7 @@ const Products = () => {
         </div>
       ))}
     </div>
+    </main>
   );
 };
 

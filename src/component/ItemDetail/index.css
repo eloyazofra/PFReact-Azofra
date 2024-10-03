@@ -27,3 +27,7 @@
     background-color: #075fbd; 
     color: white
   }
+
+  .item-detail__description {
+    white-space: pre-line; /* Esto preservará los saltos de línea y los espacios */
+  }

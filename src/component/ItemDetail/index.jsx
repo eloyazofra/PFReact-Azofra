@@ -1,18 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { image } from '../../assets/Products/image.js';
-import data from '../../assets/Products/data.json';
 import { useParams, useNavigate } from 'react-router-dom';
+import { db } from '../../config/firebase.config.js'; 
+import { doc, getDoc } from 'firebase/firestore';
+import Spinner from 'react-bootstrap/Spinner'; 
 
 const ItemDetail = ({ addToCart }) => {
-  const { id } = useParams();
+  const { id } = useParams(); 
   const [item, setItem] = useState(null);
-  const [addedToCart, setAddedToCart] = useState(false); 
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const foundItem = data.find(data => data.id === parseInt(id));
-    setItem(foundItem);
+    const fetchItem = async () => {
+      try {
+        const itemDoc = doc(db, 'items', id);
+        const itemSnapshot = await getDoc(itemDoc);
+
+        if (itemSnapshot.exists()) {
+          setItem({ id: itemSnapshot.id, ...itemSnapshot.data() });
+        } else {
+          console.log('No such document!');
+          setItem(null);
+        }
+      } catch (error) {
+        console.error('Error fetching item: ', error);
+        setItem(null);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchItem();
   }, [id]);
 
   const handleAddToCart = (item) => {
@@ -22,6 +43,16 @@ const ItemDetail = ({ addToCart }) => {
       setAddedToCart(false); 
     }, 2000); 
   };
+
+  if (loading) {
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
 
   if (!item) {
     return (
@@ -41,15 +72,15 @@ const ItemDetail = ({ addToCart }) => {
           <p className="item-detail__price">Precio ${item.price}</p>
         </div>
         <div>
-          <h3 className="item-detail__description-title">Descripción del Producto</h3>
-          <p>
-            {item.description.split('\n').map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            ))}
-          </p>
+        <h3 className="item-detaildescription-title">Descripción del Producto</h3>
+        <p className="item-detaildescription">
+        {item.description.split('. ').map((sentence, index) => (
+        <React.Fragment key={index}>
+        {sentence.trim()}
+        <br />
+    </React.Fragment>
+      ))}
+      </p>
           <button
             className={`item-detail__add-to-cart ${addedToCart ? 'disabled' : ''}`} 
             onClick={() => handleAddToCart(item)}
